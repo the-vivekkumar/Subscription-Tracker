@@ -23,11 +23,10 @@
   <a href="#-features">Features</a> •
   <a href="#-tech-stack">Tech Stack</a> •
   <a href="#-architecture">Architecture</a> •
-  <a href="#-project-structure">Project Structure</a> •
   <a href="#-quick-start">Quick Start</a> •
   <a href="#-environment-variables">Environment Variables</a> •
   <a href="#-security">Security</a> •
-  <a href="#-roadmap">Roadmap</a>
+  <a href="#-license">License</a>
 </p>
 
 ---
@@ -122,12 +121,6 @@ The application combines a modern responsive interface with authentication, data
 - Dark mode
 - Secure logout
 
-### 📤 Data Management
-
-- Export subscription information
-- Manage personal subscription records
-- Keep subscription information organized
-
 ### 📱 Responsive Design
 
 - Responsive layout
@@ -141,7 +134,7 @@ The application combines a modern responsive interface with authentication, data
 ## 🛠️ Tech Stack
 
 | Technology | Purpose |
-|------------|---------|
+|---|---|
 | **Next.js** | Full-stack React framework |
 | **React** | User interface |
 | **TypeScript** | Type-safe application development |
@@ -190,73 +183,7 @@ The application combines a modern responsive interface with authentication, data
                                              │                │
                                              │ Email Reminders│
                                              └────────────────┘
-Application Flow
-User
-  │
-  ▼
-Authentication
-  │
-  ▼
-Dashboard
-  │
-  ├── Subscription Management
-  │
-  ├── Spending Overview
-  │
-  ├── Renewal Tracking
-  │
-  └── Settings
-         │
-         ▼
-   Notification System
-         │
-         ▼
-    Email Reminder
-📁 Project Structure
-Subscription-Tracker/
-│
-├── app/
-│   ├── api/
-│   │   └── cron/
-│   │       └── renewal-alerts/
-│   │
-│   ├── auth/
-│   │   └── callback/
-│   │
-│   ├── login/
-│   ├── signup/
-│   ├── dashboard/
-│   └── ...
-│
-├── components/
-│   ├── forms/
-│   ├── layout/
-│   ├── ui/
-│   └── ...
-│
-├── lib/
-│   ├── supabase/
-│   ├── email.ts
-│   ├── env.ts
-│   ├── validations.ts
-│   └── ...
-│
-├── supabase/
-│   ├── schema.sql
-│   └── ...
-│
-├── public/
-│
-├── types/
-│
-├── middleware.ts
-├── next.config.ts
-├── package.json
-├── package-lock.json
-├── .env.example
-├── .gitignore
-├── LICENSE
-└── README.md
+
 🚀 Quick Start
 Prerequisites
 
@@ -269,7 +196,7 @@ A Supabase project
 A Resend account for email reminders
 Installation
 # Clone the repository
-git clone YOUR_REPOSITORY_URL
+git clone https://github.com/the-vivekkumar/Subscription-Tracker.git
 
 # Enter the project directory
 cd Subscription-Tracker
@@ -282,9 +209,9 @@ Create a file named:
 
 .env.local
 
-in the project root and add the required environment variables.
+in the project root.
 
-See the Environment Variables section below.
+Add the required environment variables shown in the Environment Variables section.
 
 Start the Application
 npm.cmd run dev
@@ -334,20 +261,21 @@ Subscription Tracker supports automatic email reminders for upcoming subscriptio
 The reminder system checks renewal dates and sends eligible notifications according to the configured reminder schedule.
 
 Default Reminder Schedule
-30 days before renewal
-14 days before renewal
-7 days before renewal
-3 days before renewal
-1 day before renewal
-Renewal day
+Reminder	Timing
+First reminder	30 days before renewal
+Second reminder	14 days before renewal
+Third reminder	7 days before renewal
+Fourth reminder	3 days before renewal
+Fifth reminder	1 day before renewal
+Final reminder	Renewal day
 
 Email delivery is handled through Resend.
 
-The renewal reminder process uses a protected server-side endpoint and requires a scheduled execution to automatically process reminders.
+The renewal reminder process uses a protected server-side endpoint and requires scheduled execution to automatically process reminders.
 
 ⚙️ Environment Variables
 
-Create .env.local in the project root.
+Create .env.local in the project root:
 
 NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
@@ -399,7 +327,7 @@ Never upload .env.local to a public GitHub repository.
 
 Subscription Tracker does not charge users a monthly or yearly application subscription fee.
 
-The subscription costs stored in the application are used for tracking the user's own subscription expenses.
+The subscription costs stored in the application are used only for tracking the user's own subscription expenses.
 
 🧪 Development Commands
 Install Dependencies
@@ -454,12 +382,11 @@ The MIT License allows others to use, copy, modify, merge, publish, distribute, 
 See the LICENSE file for the complete license text.
 
 👨‍💻 Author
-
 Vivek
 
 MCA Student & Developer
 
 Built with ❤️ with a focus on simplicity, security, usability, and clean design.
 
-<p align="center"> <a href="https://github.com/the-vivekkumar"> GitHub </a> </p>
-<p align="center"> <strong>Subscription Tracker</strong> </p> <p align="center"> Manage subscriptions. Track renewals. Stay organized. </p> <p align="center"> ⭐ If you find this project useful, consider giving the repository a star. </p> ```
+<p align="center"> <a href="https://github.com/the-vivekkumar"> <strong>GitHub Profile →</strong> </a> </p>
+
