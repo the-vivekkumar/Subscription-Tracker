@@ -183,6 +183,7 @@ The application combines a modern responsive interface with authentication, data
                                              │                │
                                              │ Email Reminders│
                                              └────────────────┘
+```
 
 ## 🚀 Quick Start
 
@@ -437,7 +438,7 @@ See the [`LICENSE`](LICENSE) file for the complete license text.
 
 ## 👨‍💻 Author
 
-### Vivek
+### Vivek T K
 
 **MCA Student & Developer**
 
