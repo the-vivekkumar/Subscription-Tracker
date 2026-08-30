@@ -184,99 +184,39 @@ The application combines a modern responsive interface with authentication, data
                                              │ Email Reminders│
                                              └────────────────┘
 
-🚀 Quick Start
-Prerequisites
+## 🚀 Quick Start
+
+### Prerequisites
 
 Make sure you have:
 
-Node.js 18+
-npm
-Git
-A Supabase project
-A Resend account for email reminders
-Installation
-# Clone the repository
+- **Node.js 18+**
+- **npm**
+- **Git**
+- A **Supabase project**
+- A **Resend account** for email reminders
+
+### Installation
+
+```bash
 git clone https://github.com/the-vivekkumar/Subscription-Tracker.git
-
-# Enter the project directory
 cd Subscription-Tracker
-
-# Install dependencies
 npm.cmd install
-Environment Setup
+```
+
+### Environment Setup
 
 Create a file named:
 
+```text
 .env.local
+```
 
 in the project root.
 
-Add the required environment variables shown in the Environment Variables section.
+Add the required environment variables:
 
-Start the Application
-npm.cmd run dev
-
-Open the application at:
-
-http://localhost:3000
-
-Note: npm.cmd is used on Windows PowerShell to avoid npm execution-policy issues.
-
-🗄️ Supabase Setup
-
-Subscription Tracker uses Supabase for authentication and database services.
-
-The database schema is included in:
-
-supabase/schema.sql
-
-Run the SQL from this file inside the Supabase SQL Editor to create the required database structure.
-
-Supabase provides:
-
-User authentication
-User sessions
-PostgreSQL database
-Subscription data storage
-Row Level Security
-User-specific data access
-🔑 Authentication
-
-The application supports:
-
-Email and password authentication
-Email verification
-Google OAuth
-
-Authentication is handled through Supabase Auth.
-
-Users can securely create an account, verify their email address, sign in, and access their own subscription data.
-
-Google sign-in is handled through the configured Supabase OAuth provider.
-
-📧 Email Reminder System
-
-Subscription Tracker supports automatic email reminders for upcoming subscription renewals.
-
-The reminder system checks renewal dates and sends eligible notifications according to the configured reminder schedule.
-
-Default Reminder Schedule
-Reminder	Timing
-First reminder	30 days before renewal
-Second reminder	14 days before renewal
-Third reminder	7 days before renewal
-Fourth reminder	3 days before renewal
-Fifth reminder	1 day before renewal
-Final reminder	Renewal day
-
-Email delivery is handled through Resend.
-
-The renewal reminder process uses a protected server-side endpoint and requires scheduled execution to automatically process reminders.
-
-⚙️ Environment Variables
-
-Create .env.local in the project root:
-
+```env
 NEXT_PUBLIC_SUPABASE_URL=YOUR_SUPABASE_URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
 
@@ -286,107 +226,239 @@ RESEND_API_KEY=YOUR_RESEND_API_KEY
 RESEND_FROM_EMAIL=YOUR_SENDER_EMAIL
 
 CRON_SECRET=YOUR_CRON_SECRET
-Variable	Purpose	Required
-NEXT_PUBLIC_SUPABASE_URL	Supabase project URL	Yes
-NEXT_PUBLIC_SUPABASE_ANON_KEY	Supabase public client key	Yes
-SUPABASE_SERVICE_ROLE_KEY	Server-side Supabase access	Server operations
-RESEND_API_KEY	Resend email service key	Email reminders
-RESEND_FROM_EMAIL	Email sender address	Email reminders
-CRON_SECRET	Protects scheduled reminder processing	Scheduled reminders
+```
 
-⚠️ Never commit .env.local or real API keys to GitHub.
+> ⚠️ Never commit `.env.local` or real API keys to GitHub.
 
-🔒 Security
+### Start the Application
+
+```powershell
+npm.cmd run dev
+```
+
+Open the application at:
+
+```text
+http://localhost:3000
+```
+
+> **Note:** `npm.cmd` is used on Windows PowerShell to avoid npm execution-policy issues.
+
+---
+
+## 🗄️ Supabase Setup
+
+Subscription Tracker uses **Supabase** for authentication and database services.
+
+The database schema is included in:
+
+```text
+supabase/schema.sql
+```
+
+Run the SQL from this file inside the **Supabase SQL Editor** to create the required database structure.
+
+Supabase provides:
+
+- User authentication
+- User sessions
+- PostgreSQL database
+- Subscription data storage
+- Row Level Security
+- User-specific data access
+
+---
+
+## 🔑 Authentication
+
+The application supports:
+
+- Email and password authentication
+- Email verification
+- Google OAuth
+
+Authentication is handled through **Supabase Auth**.
+
+Users can securely create an account, verify their email address, sign in, and access their own subscription data.
+
+Google sign-in is handled through the configured Supabase OAuth provider.
+
+---
+
+## 📧 Email Reminder System
+
+Subscription Tracker supports automatic email reminders for upcoming subscription renewals.
+
+### Default Reminder Schedule
+
+| Reminder | Timing |
+|---|---|
+| First reminder | 30 days before renewal |
+| Second reminder | 14 days before renewal |
+| Third reminder | 7 days before renewal |
+| Fourth reminder | 3 days before renewal |
+| Fifth reminder | 1 day before renewal |
+| Final reminder | Renewal day |
+
+Email delivery is handled through **Resend**.
+
+The renewal reminder process uses a protected server-side endpoint and requires scheduled execution to automatically process reminders.
+
+---
+
+## ⚙️ Environment Variables
+
+| Variable | Purpose | Required |
+|---|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL | Yes |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase public client key | Yes |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-side Supabase access | Server operations |
+| `RESEND_API_KEY` | Resend email service key | Email reminders |
+| `RESEND_FROM_EMAIL` | Email sender address | Email reminders |
+| `CRON_SECRET` | Protects scheduled reminder processing | Scheduled reminders |
+
+> ⚠️ Never expose server-side secrets through client-side code.
+
+> ⚠️ Never upload `.env.local` to a public GitHub repository.
+
+---
+
+## 🔒 Security
 
 Security and user data protection are important parts of the application.
 
 The project uses:
 
-Supabase Authentication
-PostgreSQL
-Row Level Security
-Protected application routes
-User-specific database access
-Server-side operations
-Environment variables for sensitive credentials
-Protected renewal reminder processing
-Secure authentication sessions
-Sensitive Credentials
+- Supabase Authentication
+- PostgreSQL
+- Row Level Security
+- Protected application routes
+- User-specific database access
+- Server-side operations
+- Environment variables for sensitive credentials
+- Protected renewal reminder processing
+- Secure authentication sessions
+
+### Sensitive Credentials
 
 The following values must remain private:
 
+```text
 SUPABASE_SERVICE_ROLE_KEY
 RESEND_API_KEY
 CRON_SECRET
+```
 
 Never expose server-side secrets through client-side code.
 
-Never upload .env.local to a public GitHub repository.
+Never upload `.env.local` to a public GitHub repository.
 
-💳 Pricing
+---
 
-Subscription Tracker does not charge users a monthly or yearly application subscription fee.
+## 💳 Pricing
 
-The subscription costs stored in the application are used only for tracking the user's own subscription expenses.
+Subscription Tracker does **not charge users a monthly or yearly application subscription fee**.
 
-🧪 Development Commands
-Install Dependencies
+The subscription costs stored in the application are used for tracking the user's own subscription expenses.
+
+---
+
+## 🧪 Development Commands
+
+### Install Dependencies
+
+```powershell
 npm.cmd install
+```
 
 Installs all required project dependencies.
 
-Start Development Server
+### Start Development Server
+
+```powershell
 npm.cmd run dev
+```
 
 Starts the local development server.
 
 After the server starts, open:
 
+```text
 http://localhost:3000
+```
 
-Note: npm.cmd is used on Windows PowerShell to avoid npm execution-policy issues.
+> **Note:** `npm.cmd` is used on Windows PowerShell to avoid npm execution-policy issues.
 
-🗺️ Roadmap
-📊 Advanced spending analytics
-📈 More detailed subscription insights
-🔔 Additional notification options
-📱 Further mobile improvements
-📤 Additional export formats
-🌍 Improved multi-currency support
-📅 Enhanced renewal management
-⚡ Continued performance improvements
-🎨 Further UI and accessibility improvements
-🤝 Contributing
+---
+
+## 🗺️ Roadmap
+
+- 📊 Advanced spending analytics
+- 📈 More detailed subscription insights
+- 🔔 Additional notification options
+- 📱 Further mobile improvements
+- 📤 Additional export formats
+- 🌍 Improved multi-currency support
+- 📅 Enhanced renewal management
+- ⚡ Continued performance improvements
+- 🎨 Further UI and accessibility improvements
+
+---
+
+## 🤝 Contributing
 
 Contributions, suggestions, and improvements are welcome.
 
-Contribution Steps
-Fork the repository
-Create a new branch
-Make your changes
-Test your changes
-Commit your changes
-Push your branch
-Open a pull request
+### Contribution Steps
+
+1. Fork the repository
+2. Create a new branch
+3. Make your changes
+4. Test your changes
+5. Commit your changes
+6. Push your branch
+7. Open a pull request
 
 Please keep contributions focused on the purpose and functionality of the project.
 
-📄 License
+---
 
-This project is licensed under the MIT License.
+## 📄 License
 
-Copyright © 2026 Vivek
+This project is licensed under the **MIT License**.
+
+Copyright © 2026 **Vivek**
 
 The MIT License allows others to use, copy, modify, merge, publish, distribute, sublicense, and sell copies of the software, subject to the terms of the license.
 
-See the LICENSE file for the complete license text.
+See the [`LICENSE`](LICENSE) file for the complete license text.
 
-👨‍💻 Author
-Vivek
+---
 
-MCA Student & Developer
+## 👨‍💻 Author
+
+### Vivek
+
+**MCA Student & Developer**
 
 Built with ❤️ with a focus on simplicity, security, usability, and clean design.
 
-<p align="center"> <a href="https://github.com/the-vivekkumar"> <strong>GitHub Profile →</strong> </a> </p>
+<p align="center">
+  <a href="https://github.com/the-vivekkumar">
+    <strong>GitHub Profile →</strong>
+  </a>
+</p>
 
+---
+
+<p align="center">
+  <strong>📋 Subscription Tracker</strong>
+</p>
+
+<p align="center">
+  Manage subscriptions. Track renewals. Stay organized.
+</p>
+
+<p align="center">
+  ⭐ If you find this project useful, consider giving the repository a star.
+</p>
